@@ -7,6 +7,10 @@ on:
         required: false
         type: string
         default: 'javascript-typescript'
+      config-file:
+        required: false
+        type: string
+        default: ''
 
 jobs:
   analyze:
@@ -20,7 +24,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Initialize CodeQL
+      - name: Initialize CodeQL (custom config)
+        if: inputs.config-file != ''
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ inputs.language }}
+          queries: +security-and-quality
+          config-file: ${{ inputs.config-file }}
+
+      - name: Initialize CodeQL (default)
+        if: inputs.config-file == ''
         uses: github/codeql-action/init@v3
         with:
           languages: ${{ inputs.language }}
