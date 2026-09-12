@@ -1,0 +1,9 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Covai-Labs shared Renovate preset combining all updates into a single PR",
+  "extends": [
+    "config:recommended",
+    "group:all"
+  ],
+  "prHourlyLimit": 0
+}
