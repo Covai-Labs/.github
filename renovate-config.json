@@ -1,9 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Covai-Labs shared Renovate preset combining all updates into a single PR",
+  "description": "Covai-Labs shared Renovate preset combining updates into 2 PRs (one for security vulnerabilities and one for general dependencies)",
   "extends": [
     "config:recommended",
     "group:all"
   ],
+  "vulnerabilityAlerts": {
+    "groupName": "security-updates",
+    "groupSlug": "security-updates",
+    "labels": ["security"]
+  },
   "prHourlyLimit": 0
 }
